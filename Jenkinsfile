@@ -1,17 +1,14 @@
-node(){
-stage ("clone"){
-}
-stage ("build"){
-}
-stage ("test-unittesting"){
-}
-stage ("Sonarqube"){
-}
-stage ("Creating docker container"){
-}
-
-stage ("docker verification"){
-}
-  stage ("upload docker image to dockehu/artifactory"){
-}
+pipeline {
+    agent any
+    tools {
+        jdk 'jdk8'
+        maven 'maven3'
+    }
+    stages {
+        stage('Install') {
+            steps {
+               sh "mvn clean test"
+            }
+        }
+    }
 }
